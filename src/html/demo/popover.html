@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+@@include('../tpl/header.htm', {"title": "弹出层", "pageCssPath": [], "baseHref": "../../"})
+
+<body>
+  <div class="iframe-content-container">
+    <!-- 定义页面内容区域 start  -->
+    <h3>4个弹出方向</h3>
+    <div class="bs-example popover-demo">
+      <div class="bs-example-popovers">
+        <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+          data-original-title="" title="" aria-describedby="popover225563">
+          Popover on right
+        </button>
+        <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+          data-original-title="" title="">
+          Popover on top
+        </button>
+        <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+          data-original-title="" title="">
+          Popover on bottom
+        </button>
+        <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+          data-original-title="" title="">
+          Popover on left
+        </button>
+      </div>
+    </div>
+    <!-- 定义页面内容区域 end  -->
+  </div>
+
+  @@include('../tpl/footer.htm', {"pageJsPath": []})
+  <script>
+    $(function () {
+      $('[data-toggle="popover"]').popover()
+    });
+
+  </script>
+</body>
+
+</html>

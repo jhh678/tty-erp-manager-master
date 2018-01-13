@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+@@include('../tpl/header.htm', {"title": "表单", "pageCssPath": [], "baseHref": "../../"})
+<style>
+
+
+</style>
+
+<body>
+  <div class="iframe-content-container">
+    <!-- 定义页面内容区域 start  -->
+    <div class="form-demo-header">
+      <h3>Form 表单</h3>
+      <div class="text-muted">由输入框、选择器、单选框、多选框等控件组成，用以收集、校验、提交数据</div>
+    </div>
+    <section class="panel panel-default">
+      <div class="panel-heading">
+        <h4>典型表单</h4>
+        <div class="text-muted">包括各种表单项，比如输入框、选择器、开关、单选框、多选框等。</div>
+      </div>
+      <div class="panel-body">
+        <form class="b-form form-horizontal">
+          <div class="form-group">
+            <label for="activiesName1" class="control-label" style="width: 100px;">活动名称</label>
+            <div class="form-item" style="margin-left: 100px;">
+              <input autocomplete="off" type="text" placeholder="请输入活动名称" name="activiesName1" class="form-control">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password1" class="control-label" style="width: 100px;">密码</label>
+            <div class="form-item" style="margin-left: 100px;">
+              <input autocomplete="off" type="text" placeholder="请输入密码" id="password1" name="password1" class="form-control">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword1" class="control-label" style="width: 100px;">确认密码</label>
+            <div class="form-item" style="margin-left: 100px;">
+              <input autocomplete="off" type="text" placeholder="请输入确认密码" id="confirmPassword1" name="confirmPassword1" class="form-control">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="region" class="control-label" style="width: 100px;">活动区域</label>
+            <div class="form-item" style="margin-left: 100px;">
+              <select id="activiesArea1" class="form-control selectpicker select-null" placeholder="请选择活动区域">
+                <option value="1">北京</option>
+                <option value="2">上海</option>
+                <option value="3">广州</option>
+                <option value="4">深圳</option>
+                <option value="5">重庆</option>
+                <option value="6">南昌</option>
+              </select>
+            </div>
+          </div>
+          <!-- <div class="form-group">
+                    <label for="delivery" class="control-label" style="width: 100px;">即时配送</label>
+                    <div class="form-item" style="margin-left: 100px;">
+                    </div>
+                  </div> -->
+          <div class="form-group">
+            <label for="type" class="control-label" style="width: 100px;">活动性质</label>
+            <div class="form-item" style="margin-left: 100px;">
+              <div class="b-opt" style="min-width: 160px;">
+                <input class="b-checkbox" type="checkbox" id="checkbox1" value="option1" name="activiesKind1">
+                <label for="checkbox1">美食/餐厅线上活动</label>
+              </div>
+              <div class="b-opt" style="min-width: 160px;">
+                <input class="b-checkbox" type="checkbox" id="checkbox2" value="option2" name="activiesKind1">
+                <label for="checkbox2">地推活动</label>
+              </div>
+              <div class="b-opt" style="min-width: 160px;">
+                <input class="b-checkbox" type="checkbox" id="checkbox3" value="option3" name="activiesKind1">
+                <label for="checkbox3">线下主题活动</label>
+              </div>
+              <div class="b-opt" style="min-width: 160px;">
+                <input class="b-checkbox" type="checkbox" id="checkbox4" value="option4" name="activiesKind1">
+                <label for="checkbox4">单纯品牌曝光</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="resource" class="control-label" style="width: 100px;">特殊资源</label>
+            <div class="form-item" style="margin-left: 100px;">
+              <div class="b-opt" style="min-width: 160px;">
+                <input class="b-radio" type="radio" name="specialRes1" id="radio1" value="speRes1" checked>
+                <label for="radio1">线上品牌商赞助</label>
+              </div>
+              <div class="b-opt" style="min-width: 160px;">
+                <input class="b-radio" type="radio" name="specialRes1" id="radio2" value="speRes2">
+                <label for="radio2">线下场地免费</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="desc" class="control-label" style="width: 100px;">活动形式</label>
+            <div class="form-item" style="margin-left: 100px;">
+              <textarea type="textarea" rows="2" autocomplete="off" placeholder="请输入活动形式" name="activiesPattern1" class="form-control"></textarea>
+            </div>
+          </div>
+          <div class="form-btns" style="width: 538px;">
+            <button type="submit" class="btn btn-primary btn-mw">保存并新增</button>
+            <button type="submit" class="btn btn-mw">保存</button>
+            <button type="button" class="btn btn-default btn-mw">取消</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- 表单验证 -->
+    <section class="panel panel-default">
+      <div class="panel-heading">
+        <h4>表单验证</h4>
+        <div class="text-muted">在防止用户犯错的前提下，尽可能让用户更早地发现并纠正错误。</div>
+      </div>
+      <div class="panel-body">
+        <form class="b-form form-horizontal" id="form-validator" action="/api/submitActivies">
+          <div class="form-group required has-feedback">
+            <label for="name" class="control-label" style="width: 100px;">活动名称</label>
+            <div class="form-item" style="margin-left: 100px;">
+              <input autocomplete="off" type="text" placeholder="请输入活动名称" name="activiesName" class="form-control">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password2" class="control-label" style="width: 100px;">密码</label>
+            <div class="form-item" style="margin-left: 100px;">
+              <input autocomplete="off" type="text" placeholder="请输入密码" id="password2" name="password2" class="form-control">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword2" class="control-label" style="width: 100px;">确认密码</label>
+            <div class="form-item" style="margin-left: 100px;">
+              <input autocomplete="off" type="text" placeholder="请输入确认密码" id="confirmPassword2" name="confirmPassword2" class="form-control">
+            </div>
+          </div>
+          <div class="form-group required has-feedback">
+            <label for="region" class="control-label" style="width: 100px;">活动区域</label>
+            <div class="form-item" style="margin-left: 100px;">
+              <select id="activiesArea1" class="form-control selectpicker select-null" name="activiesArea" placeholder="请选择活动区域">
+                <option></option>
+                <option value="1">北京</option>
+                <option value="2">上海</option>
+                <option value="3">广州</option>
+                <option value="4">深圳</option>
+                <option value="5">重庆</option>
+                <option value="6">南昌</option>
+              </select>
+            </div>
+          </div>
+          <!-- <div class="form-group">
+                      <label for="delivery" class="control-label" style="width: 100px;">即时配送</label>
+                      <div class="form-item" style="margin-left: 100px;">
+                      </div>
+                    </div> -->
+          <div class="form-group required">
+            <label for="type" class="control-label" style="width: 100px;">活动性质</label>
+            <div class="form-item" style="margin-left: 100px;">
+              <div class="b-opt" style="min-width: 160px;">
+                <input class="b-checkbox" type="checkbox" id="checkbox11" value="option1" name="activiesKind2">
+                <label for="checkbox11">美食/餐厅线上活动</label>
+              </div>
+              <div class="b-opt" style="min-width: 160px;">
+                <input class="b-checkbox" type="checkbox" id="checkbox21" value="option2" name="activiesKind2">
+                <label for="checkbox21">地推活动</label>
+              </div>
+              <div class="b-opt" style="min-width: 160px;">
+                <input class="b-checkbox" type="checkbox" id="checkbox31" value="option3" name="activiesKind2">
+                <label for="checkbox31">线下主题活动</label>
+              </div>
+              <div class="b-opt" style="min-width: 160px;">
+                <input class="b-checkbox" type="checkbox" id="checkbox41" value="option4" name="activiesKind2">
+                <label for="checkbox41">单纯品牌曝光</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group required">
+            <label for="resource" class="control-label" style="width: 100px;">特殊资源</label>
+            <div class="form-item" style="margin-left: 100px;">
+              <div class="b-opt" style="min-width: 160px;">
+                <input class="b-radio" type="radio" name="specialRes2" id="radio11" value="speRes1">
+                <label for="radio11">线上品牌商赞助</label>
+              </div>
+              <div class="b-opt" style="min-width: 160px;">
+                <input class="b-radio" type="radio" name="specialRes2" id="radio21" value="speRes2">
+                <label for="radio21">线下场地免费</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group has-feedback">
+            <label for="desc" class="control-label" style="width: 100px;">活动形式</label>
+            <div class="form-item" style="margin-left: 100px;">
+              <textarea type="textarea" rows="2" autocomplete="off" placeholder="请输入活动形式" name="activiesPattern" class="form-control"></textarea>
+            </div>
+          </div>
+          <div class="form-btns" style="width: 538px;">
+            <button type="submit" class="btn btn-primary btn-mw" data-type="saveAndAdd">保存并新增</button>
+            <button type="submit" class="btn btn-mw" data-type="save">保存</button>
+            <button type="button" class="btn btn-default btn-mw">取消</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- 行内表单 -->
+    <section class="panel panel-default">
+      <div class="panel-heading">
+        <h4>行内表单</h4>
+        <div class="text-muted">当垂直方向空间受限且表单较简单时，可以在一行内放置表单，可用于表格检索条件。</div>
+      </div>
+      <div class="panel-body">
+        <div class="search-wrap">
+          <form class="b-form form-inline">
+            <div class="form-group">
+              <label for="user" class="control-label">姓名</label>
+              <div class="form-item">
+                <input autocomplete="off" placeholder="请输入工号、姓名、手机号查询" size="sm" type="text" class="form-control input-sm">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="user" class="control-label" style="width: 100px;">审批人</label>
+              <div class="form-item">
+                <input autocomplete="off" placeholder="审批人" size="sm" type="text" class="form-control input-sm">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="region" class="control-label" style="width: 100px;">活动区域</label>
+              <div class="form-item">
+                <select class="form-control selectpicker select-sm select-null" id="fromInlineSelect" placeholder="请选择活动区域">
+                  <option></option>
+                  <option value="1">北京</option>
+                  <option value="2">上海</option>
+                  <option value="3">广州</option>
+                  <option value="4">深圳</option>
+                  <option value="5">重庆</option>
+                  <option value="6">南昌</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-btns">
+                <button type="button" class="btn btn-primary btn-sm">检索</button>
+                <button type="button" class="btn btn-default btn-sm btn-reset">重置</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="option-btns-wrap">
+          <button type="button" class="btn btn-primary btn-sm">
+            <i class="iconfont icon-xinzeng"></i>新增</button>
+          <button type="button" class="btn btn-default btn-sm">
+            <i class="iconfont icon-jinyong"></i>禁用</button>
+          <button type="button" class="btn btn-default btn-sm">
+            <i class="iconfont icon-qiyong"></i>启用</button>
+          <button type="button" class="btn btn-default btn-sm">
+            <i class="iconfont icon-close"></i>删除</button>
+          <button type="button" class="btn btn-default btn-sm">
+            <i class="iconfont icon-daochu"></i>导出</button>
+          <button type="button" class="btn btn-default btn-sm">
+            <i class="iconfont icon-daoru"></i>导入</button>
+          <button type="button" class="btn btn-default btn-sm">
+            <i class="iconfont icon-shangpinku"></i>云商品库</button>
+        </div>
+      </div>
+    </section>
+    <!-- 定义页面内容区域 end  -->
+  </div>
+
+  @@include('../tpl/footer.htm', {"pageJsPath": []})
+
+  <script>
+    $(function () {
+      $('#form-validator').find('[name="activiesArea"]').on('change', function (e) {
+
+          /* Revalidate the activiesArea when it is changed */
+          // 下拉选择组件验证处理
+          $('#form-validator').formValidation('revalidateField', 'activiesArea');
+        }).end()
+        .on('init.field.fv', function (e, data) {
+          // data.field   --> The field name
+          // data.element --> The field element
+          // checkbox|radio选择验证处理
+          if (data.field === 'activiesKind2' || data.field === 'specialRes2') {
+            ($(e.target).closest('.form-item')).append(data.element.data('fv.icon'));
+          }
+        }).formValidation({
+          excluded: ':disabled',
+          fields: {
+            activiesName: {
+              validators: {
+                notEmpty: {
+                  message: '活动名称不能为空'
+                },
+                regexp: {
+                  regexp: /^[\u4e00-\u9fa5a-zA-Z0-9]+$/,
+                  message: '活动名称只能输入汉字、英文、字母和数字'
+                }
+              }
+            },
+            password2: {
+              validators: {
+                notEmpty: {
+                  message: '密码不能为空'
+                }
+              }
+            },
+            confirmPassword2: {
+              trigger: 'blur',
+              validators: {
+                different: {
+                  field: 'password2',
+                  message: '两次密码输入不一致'
+                }
+              }
+            },
+            activiesArea: {
+              validators: {
+                notEmpty: {
+                  message: '活动区域不能为空'
+                }
+              }
+            },
+            activiesKind2: {
+              validators: {
+                notEmpty: {
+                  message: '活动性质不能为空'
+                }
+              }
+            },
+            specialRes2: {
+              validators: {
+                notEmpty: {
+                  message: '特殊资源不能为空'
+                }
+              }
+            },
+            activiesPattern: {
+              validators: {
+                stringLength: {
+                  message: '请输入文字长度不超过20',
+                  max: 20
+                }
+              }
+            }
+          }
+        }).on('success.form.fv', function (e) {
+          // Prevent form submission
+          e.preventDefault();
+
+          var $form = $(e.target),
+            $button = $form.data('formValidation').getSubmitButton();
+          $form.data('formValidation');
+
+          // Use Ajax to submit form data
+          $.ajax({
+            url: $form.attr('action'),
+            type: 'POST',
+            data: $form.serialize(),
+            success: function (result) {
+              // ... Process the result ...
+              switch ($button.data('type')) {
+                case 'saveAndAdd':
+                  console.log('saveAndAdd');
+                  break;
+
+                case 'save':
+                  console.log('save');
+                  break;
+                default:
+                  console.log('default');
+                  break;
+              }
+            }
+          });
+        });
+
+      $('.btn-reset').on('click', function () {
+        $('.form-inline')[0].reset();
+        $('#fromInlineSelect').selectpicker('refresh');
+      });
+    });
+
+  </script>
+</body>
+
+</html>

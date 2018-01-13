@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+@@include('../tpl/header.htm', {"title": "单选框", "pageCssPath": [], "baseHref": "../../"})
+
+<body>
+  <div class="iframe-content-container">
+    <!-- 定义页面内容区域 start  -->
+    <h4>基础用法</h4>
+    <div class="text-muted">由于选项默认可见，不宜过多，若选项过多，建议使用 Select 选择器。</div>
+    <div class="row">
+      <div class="col-sm-24">
+        <div class="b-col">
+          <h4>Radio</h4>
+          <div class="b-opt">
+            <input class="b-radio" type="radio" id="r1" value="option1" checked>
+            <label for="r1">备选项</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h4>禁用状态</h4>
+    <div class="text-muted">多选框不可用状态。</div>
+    <div class="col-sm-24">
+      <div class="b-col">
+        <div class="b-opt">
+          <input class="b-radio" type="radio" id="r3" value="option3" checked disabled>
+          <label for="r3">备选项</label>
+        </div>
+        <div class="b-opt">
+          <input class="b-radio" type="radio" id="r4" value="option4" disabled>
+          <label for="r4">备选项</label>
+        </div>
+      </div>
+    </div>
+    <h4>单选框组</h4>
+    <div class="text-muted">适用于在多个互斥的选项中选择的场景</div>
+    <div class="row">
+      <div class="col-sm-24">
+        <div class="b-col">
+          <div class="b-opt">
+            <input class="b-radio" type="radio" name="radio" id="r5" value="option5" checked>
+            <label for="r5">备选项1</label>
+          </div>
+          <div class="b-opt">
+            <input class="b-radio" type="radio" name="radio" id="r6" value="option6">
+            <label for="r6">备选项2</label>
+          </div>
+          <div class="b-opt">
+            <input class="b-radio" type="radio" name="radio" id="r7" value="option7">
+            <label for="r7">备选项3</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 定义页面内容区域 end  -->
+  </div>
+
+  @@include('../tpl/footer.htm', {"pageJsPath": []})
+</body>
+
+</html>

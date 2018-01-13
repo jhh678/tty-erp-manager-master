@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="renderer" content="webkit" />
+  <title>首页</title>
+  <base href="../" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="stylesheet" href="css/common/bootstrap.css" />
+  <link rel="stylesheet" href="css/common/common.css" />  <link rel="stylesheet" href="css/index.css" /> 
+</head>
+
+
+<body class="index-body">
+  <!-- menu start -->
+<div class="page-sidebar">
+  <div class="tty-logo">
+    <i class="iconfont icon-logo"></i>
+  </div>
+  <ul>
+    <li data-module="demo">
+      <i class="iconfont icon-search"></i>
+      <span>组件演示</span>
+      <i class="iconfont icon-zhankai"></i>
+      <div class="sub-menu">
+        <div class="group">
+          <div class="group-name">基本组件</div>
+          <ul>
+            <li>
+              <a href="html/demo/index.html" data-name="组件说明" class="hover-layer">组件说明</a>
+            </li>
+            <li>
+              <a href="html/demo/button.html" data-name="按钮" class="hover-layer">按钮</a>
+            </li>
+            <li>
+              <a href="html/demo/table.html" data-name="表格" class="hover-layer">表格</a>
+            </li>
+            <li>
+              <a href="html/demo/form.html" data-name="表单" class="hover-layer">表单</a>
+            </li>
+            <li>
+              <a href="html/demo/switch.html" data-name="开关" class="hover-layer">开关</a>
+            </li>
+            <li>
+              <a href="html/demo/radio.html" data-name="单选框" class="hover-layer">单选框</a>
+            </li>
+            <li>
+              <a href="html/demo/checkbox.html" data-name="多选框" class="hover-layer">多选框</a>
+            </li>
+            <li>
+              <a href="html/demo/select.html" data-name="下拉选择" class="hover-layer">下拉选择</a>
+            </li>
+          </ul>
+        </div>
+        <div class="group">
+          <div class="group-name">其他组件</div>
+          <ul>
+            <li>
+              <a href="html/demo/dropdowns.html" data-name="下拉菜单" class="hover-layer">下拉菜单</a>
+            </li>
+            <li>
+              <a href="html/demo/popover.html" data-name="弹出层" class="hover-layer">弹出层</a>
+            </li>
+            <li>
+              <a href="html/demo/message-box.html" data-name="消息弹框" class="hover-layer">消息弹框</a>
+            </li>
+            <ul>
+              <li>
+                <a href="html/demo/message.html" data-name="消息提示" class="hover-layer">消息提示</a>
+              </li>
+              <li>
+                <a href="html/demo/modal.html" data-name="模态框" class="hover-layer">模态框</a>
+              </li>
+              <li>
+                <a href="html/demo/daterangepicker.html" data-name="日期时间选择器" class="hover-layer">日期时间选择器</a>
+              </li>
+              <li>
+                <a href="html/demo/file-upload.html" data-name="文件上传" class="hover-layer">文件上传</a>
+              </li>
+              <li>
+                <a href="html/demo/tree.html" data-name="树形结构" class="hover-layer">树形结构</a>
+              </li>
+              <li>
+                <a href="html/demo/tree-grid.html" data-name="表格树" class="hover-layer">表格树</a>
+              </li>
+            </ul>
+        </div>
+      </div>
+    </li>
+    <li data-module="purchase">
+      <i class="iconfont icon-caigouguanli"></i>
+      <span>采购</span>
+      <i class="iconfont icon-zhankai"></i>
+      <div class="sub-menu">
+        <div class="group">
+          <div class="group-name">采购单据</div>
+          <ul>
+            <li>
+              <a href="/purchase" class="hover-layer">采购订单</a>
+            </li>
+            <li>
+              <a href="/purchase" class="hover-layer">采购入库单</a>
+            </li>
+            <li>
+              <a href="/purchase" class="hover-layer">采购退货单</a>
+            </li>
+            <li>
+              <a href="/purchase" class="hover-layer">在线采购</a>
+            </li>
+          </ul>
+        </div>
+        <div class="group">
+          <div class="group-name">采购报表</div>
+          <ul>
+            <li>
+              <a href="/purchase" class="hover-layer">采购明细表</a>
+            </li>
+            <li>
+              <a href="/purchase" class="hover-layer">采购汇总表（按商品）</a>
+            </li>
+            <li>
+              <a href="/purchase" class="hover-layer">采购汇总表（按供应商）</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </li>
+    <li data-module="sales">
+      <i class="iconfont icon-xiaoshou"></i>
+      <span>销售</span>
+      <i class="iconfont icon-zhankai"></i>
+      <div class="sub-menu">
+        <div class="group">
+          <div class="group-name">销售单据</div>
+          <ul>
+            <li>
+              <a href="/sales" class="hover-layer">销售订单</a>
+            </li>
+            <li>
+              <a href="/sales" class="hover-layer">销售出库单</a>
+            </li>
+            <li>
+              <a href="/sales" class="hover-layer">零售单</a>
+            </li>
+            <li>
+              <a href="/sales" class="hover-layer">销售退货</a>
+            </li>
+          </ul>
+        </div>
+        <div class="group">
+          <div class="group-name">销售报表</div>
+          <ul>
+            <li>
+              <a href="/sales" class="hover-layer">销售明细表</a>
+            </li>
+            <li>
+              <a href="/sales" class="hover-layer">销售汇总表（按商品）</a>
+            </li>
+            <li>
+              <a href="/sales" class="hover-layer">销售汇总表（按客户）</a>
+            </li>
+            <li>
+              <a href="/sales" class="hover-layer">销售汇总表（按经手人）</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </li>
+    <li data-module="storage">
+      <i class="iconfont icon-cangchu"></i>
+      <span>仓储</span>
+      <i class="iconfont icon-zhankai"></i>
+      <div class="sub-menu">
+        <div class="group">
+          <div class="group-name">仓储单据</div>
+          <ul>
+            <li>
+              <a href="html/st_stock/st_stockIndex.html" data-name="仓库" class="hover-layer">仓库</a>
+            </li>
+            <li>
+              <a href="/storage" class="hover-layer">入库单</a>
+            </li>
+            <li>
+              <a href="/storage" class="hover-layer">出库单</a>
+            </li>
+            <li>
+              <a href="/storage" class="hover-layer">调拨单</a>
+            </li>
+            <li>
+              <a href="/storage" class="hover-layer">盘点单</a>
+            </li>
+          </ul>
+        </div>
+        <div class="group">
+          <div class="group-name">仓储报表</div>
+          <ul>
+            <li>
+              <a href="/storage" class="hover-layer">库存表</a>
+            </li>
+            <li>
+              <a href="/storage" class="hover-layer">商品入出库明细表</a>
+            </li>
+            <li>
+              <a href="/storage" class="hover-layer">商品入出库汇总表</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </li>
+    <li data-module="member-market">
+      <i class="iconfont icon-huiyuan"></i>
+      <span>会员营销</span>
+      <i class="iconfont icon-zhankai"></i>
+      <div class="sub-menu">
+        <div class="group">
+          <div class="group-name">会员管理</div>
+          <ul>
+            <li>
+              <a href="/member-market" class="hover-layer">会员管理</a>
+            </li>
+            <li>
+              <a href="/member-market" class="hover-layer">会员卡充值</a>
+            </li>
+            <li>
+              <a href="/member-market" class="hover-layer">会员积分</a>
+            </li>
+            <li>
+              <a href="/member-market" class="hover-layer">积分兑换</a>
+            </li>
+            <li>
+              <a href="/member-market" class="hover-layer">会员业务明细查询</a>
+            </li>
+          </ul>
+        </div>
+        <div class="group">
+          <div class="group-name">营销活动</div>
+          <ul>
+            <li>
+              <a href="/member-market" class="hover-layer">优惠券管理</a>
+            </li>
+            <li>
+              <a href="/member-market" class="hover-layer">奖励活动</a>
+            </li>
+            <li>
+              <a href="/member-market" class="hover-layer">商品促销</a>
+            </li>
+            <li>
+              <a href="/member-market" class="hover-layer">消息群发（含短信）</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </li>
+    <li data-module="finance-manage">
+      <i class="iconfont icon-caigouguanli"></i>
+      <span>财务管理</span>
+      <i class="iconfont icon-zhankai"></i>
+      <div class="sub-menu">
+        <div class="group">
+          <div class="group-name">结算管理</div>
+          <ul>
+            <li>
+              <a href="/finance-manage" class="hover-layer">业务单据</a>
+            </li>
+            <li>
+              <a href="/finance-manage" class="hover-layer">往来管理（应收应付）</a>
+            </li>
+            <li>
+              <a href="/finance-manage" class="hover-layer">预收预付（收付款）</a>
+            </li>
+            <li>
+              <a href="/finance-manage" class="hover-layer">往来预警设置</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </li>
+    <li data-module="statistical-analysis">
+      <i class="iconfont icon-tongjifenxi"></i>
+      <span>统计分析</span>
+      <i class="iconfont icon-zhankai"></i>
+      <div class="sub-menu">
+        <div class="group">
+          <div class="group-name">报表分析</div>
+          <ul>
+            <li>
+              <a href="/statistical-analysis" class="hover-layer">老板一张表</a>
+            </li>
+            <li>
+              <a href="/statistical-analysis" class="hover-layer">会员统计报表</a>
+            </li>
+            <li>
+              <a href="/statistical-analysis" class="hover-layer">会员销售统计</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </li>
+    <li data-module="basic-data">
+      <i class="iconfont icon-jichuziliao"></i>
+      <span>基础资料</span>
+      <i class="iconfont icon-zhankai"></i>
+      <div class="sub-menu">
+        <div class="group">
+          <div class="group-name">基础资料</div>
+          <ul>
+            <li>
+              <a href="html/base_data/org_chart.html" data-name="组织架构" class="hover-layer">组织架构</a>
+            </li>
+            <li>
+              <a href="html/404.html" data-name="404" class="hover-layer">银行账户</a>
+            </li>
+            <li>
+              <a href="html/404.html" class="hover-layer">职员管理</a>
+            </li>
+            <li>
+              <a href="/basic-data/org-chart" class="hover-layer">客户管理</a>
+            </li>
+            <li>
+              <a href="/basic-data/supplier-mgr" class="hover-layer">供货商管理</a>
+            </li>
+            <li>
+              <a href="/basic-data/goods-mgr" class="hover-layer">商品管理</a>
+            </li>
+            <li>
+              <a href="html/base_brand/base_brandIndex.html" data-name="商品品牌" class="hover-layer">商品品牌</a>
+            </li>
+            <li>
+              <a href="html/sys_unit/sys_unitIndex.html" data-name="单位列表" class="hover-layer">单位列表</a>
+            </li>
+            <li>
+              <a href="html/base_rate/base_rateIndex.html" data-name="税率列表" class="hover-layer">税率列表</a>
+            </li>
+            <li>
+              <a href="/basic-data/org-chart" class="hover-layer">商品定价管理</a>
+            </li>
+            <li>
+              <a href="/basic-data/supplier-mgr" class="hover-layer">仓库管理</a>
+            </li>
+            <li>
+              <a href="/basic-data/supplier-mgr" class="hover-layer">作物维护</a>
+            </li>
+          </ul>
+        </div>
+        <div class="group">
+          <div class="group-name">系统管理</div>
+          <ul>
+            <li>
+              <a href="html/404.html" class="hover-layer">角色管理</a>
+            </li>
+            <li>
+              <a href="html/404.html" class="hover-layer">系统用户</a>
+            </li>
+            <li>
+              <a href="/basic-data/" class="hover-layer">参数配置</a>
+            </li>
+            <li>
+              <a href="/basic-data/" class="hover-layer">单据设置</a>
+            </li>
+            <li>
+              <a href="/basic-data/" class="hover-layer">结存</a>
+            </li>
+            <li>
+              <a href="/basic-data/" class="hover-layer">业务日期冻结</a>
+            </li>
+            <li>
+              <a href="/basic-data/" class="hover-layer">报警薄</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </li>
+    </ul>
+</div>
+<!-- menu end -->
+
+
+  <div class="page-content">
+    <!-- navbar start -->
+<div class="header">
+  <div class="header-bar">
+    <span class="company-name">河南邦园植保有限公司</span>
+    <div class="account-nav pull-right clearfix">
+      <ul class="clearfix">
+        <li role="button" class="hover-layer">
+          <i class="iconfont icon-yujing"></i>
+        </li>
+        <li role="button" class="hover-layer">
+          <i class="iconfont icon-xiaoxi"></i>
+          <span class="badge-count">99+</span>
+        </li>
+        <li role="button" class="hover-layer">
+          <i class="iconfont icon-bangzhu"></i>
+        </li>
+      </ul>
+      <div class="dropdown">
+        <div role="button" data-role="trigger" class="dropdown-toggle hover-layer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span>18888888888</span>
+          <i class="iconfont icon-zhankai"></i>
+        </div>
+        <ul class="dropdown-menu dropdown-menu-right">
+          <li>
+            <a role="button">修改密码</a>
+          </li>
+          <li>
+            <a role="button">退出</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="tab-page">
+    <div class="tabs-nav-wrap">
+      <ul>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- navbar end -->
+
+
+    <div class="container-fluid">
+      <div class="sub-page">
+        <div class="sub-page-content panel panel-default">
+          <!-- 定义页面内容区域 start  -->
+          <!-- <iframe src="html/home.html" frameborder="0" id="iframe_0" class="sub-page-iframe"></iframe> -->
+          <!-- 定义页面内容区域 end  -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/libs/jquery-3.2.1.js"></script>
+<script src="js/libs/bootstrap.js"></script>
+<script src="js/common/utils.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/plugins/jquery.bootstrap.validator.js"></script>
+ <script src="js/index.js">
+  </script>
+  
+
+</body>
+
+</html>

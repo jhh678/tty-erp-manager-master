@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+@@include('../tpl/header.htm', {"title": "表格树", "pageCssPath": ["base_data/org_chart"], "baseHref": "../../"})
+
+<body>
+  <div class="iframe-content-container">
+    <!-- 定义页面内容区域 start  -->
+
+    <!-- 组织架构表格树 -->
+    <div id="treeGridWrap"></div>
+
+    <!-- 组织模态框 -->
+    <div tabindex="-1" id="orgModal" role="dialog" class="modal fade" aria-hidden="true" aria-labelledby="orgModalLabel">
+      <div role="document" class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" aria-label="close" class="btn close" data-dismiss="modal" aria-hidden="true">
+              <i aria-hidden="true" class="iconfont icon-close"></i>
+            </button>
+            <h4 class="modal-title" id="orgModalLabel">编辑组织</h4>
+          </div>
+          <div class="modal-body">
+            <form class="b-form form-horizontal" id="orgFormValidator" action="">
+              <div class="form-group required has-feedback col-sm-12">
+                <label for="org_code" class="control-label" style="width: 85px;">编码:</label>
+                <div class="form-item form-item-cols" style="margin-left: 85px;">
+                  <input autocomplete="off" type="text" id="org_code" name="org_code" class="form-control" placeholder="请输入编码">
+                </div>
+              </div>
+              <div class="form-group has-feedback col-sm-12">
+                <label for="org_short_name" class="control-label" style="width: 85px;">组织简称:</label>
+                <div class="form-item form-item-cols" style="margin-left: 85px;">
+                  <input autocomplete="off" type="text" placeholder="请输入仓库名称" name="org_short_name" id="org_short_name" class="form-control">
+                </div>
+              </div>
+              <div class="form-group required has-feedback col-sm-24">
+                <label for="org_name" class="control-label" style="width: 85px;">组织名称:</label>
+                <div class="form-item" style="margin-left: 85px;">
+                  <input autocomplete="off" type="text" id="org_name" name="org_name" class="form-control" placeholder="请输入组织名称">
+                </div>
+              </div>
+              <div class="form-group required has-feedback col-sm-12">
+                <label for="stock_clerk" class="control-label" style="width: 85px;">法人:</label>
+                <div class="form-item form-item-cols" style="margin-left: 85px;">
+                  <input autocomplete="off" type="text" name="org_legal_person" id="org_legal_person" class="form-control" placeholder="请输入法人">
+                </div>
+              </div>
+              <div class="form-group required has-feedback col-sm-12">
+                <label for="org_type_id" class="control-label" style="width: 85px;">组织类型:</label>
+                <div class="form-item form-item-cols" style="margin-left: 85px;">
+                  <select id="org_type_id" name="org_type_id" class="selectpicker show-tick form-control">
+                    <option value="1">独立核算</option>
+                    <option value="2" selected>非独立核算</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group has-feedback col-sm-12">
+                <label for="org_tel" class="control-label" style="width: 85px;">电话:</label>
+                <div class="form-item form-item-cols" style="margin-left: 85px;">
+                  <input autocomplete="off" type="text" name="org_tel" id="org_tel" class="form-control" placeholder="请输入电话">
+                </div>
+              </div>
+              <div class="form-group has-feedback col-sm-12">
+                <label for="org_fax" class="control-label" style="width: 85px;">传真:</label>
+                <div class="form-item form-item-cols" style="margin-left: 85px;">
+                  <input autocomplete="off" type="text" placeholder="请输入传真" id="org_fax" name="org_fax" class="form-control">
+                </div>
+              </div>
+              <div class="form-group has-feedback col-sm-24">
+                <label for="org_address" class="control-label" style="width: 85px;">地址:</label>
+                <div class="form-item" style="margin-left: 85px;">
+                  <input autocomplete="off" type="text" id="org_address" name="org_address" class="form-control" placeholder="请输入地址">
+                </div>
+              </div>
+              <div class="form-group has-feedback col-sm-12">
+                <label for="org_number" class="control-label" style="width: 85px;">组织代码:</label>
+                <div class="form-item form-item-cols" style="margin-left: 85px;">
+                  <input autocomplete="off" type="text" name="org_number" id="org_number" class="form-control" placeholder="请输入组织代码">
+                </div>
+              </div>
+              <div class="form-group has-feedback col-sm-12">
+                <label for="org_tax_no" class="control-label" style="width: 85px;">税务登记号:</label>
+                <div class="form-item form-item-cols" style="margin-left: 85px;">
+                  <input autocomplete="off" type="text" placeholder="请输入税务登记号" id="org_tax_no" name="org_tax_no" class="form-control">
+                </div>
+              </div>
+
+              <div class="form-btns" style="width: 538px;">
+                <button type="submit" class="btn btn-primary btn-mw" data-type="saveAndAdd">保存并新增</button>
+                <button type="submit" class="btn btn-mw" data-type="save">保存</button>
+                <button type="button" class="btn btn-default btn-mw" data-dismiss="modal">取消</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 部门模态框 -->
+    <div tabindex="-1" id="deptModal" role="dialog" class="modal fade" aria-hidden="true" aria-labelledby="deptModalLabel">
+      <div role="document" class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" aria-label="close" class="btn close" data-dismiss="modal" aria-hidden="true">
+              <i aria-hidden="true" class="iconfont icon-close"></i>
+            </button>
+            <h4 class="modal-title" id="deptModalLabel">编辑部门</h4>
+          </div>
+          <div class="modal-body">
+            <form class="b-form form-horizontal" id="deptFormValidator" action="">
+              <div class="form-group required has-feedback">
+                <label for="dept_code" class="control-label">部门编码:</label>
+                <div class="form-item">
+                  <input autocomplete="off" type="text" id="dept_code" name="dept_code" class="form-control" placeholder="请输入部门编码">
+                </div>
+              </div>
+              <div class="form-group required has-feedback">
+                <label for="dept_name" class="control-label">部门名称:</label>
+                <div class="form-item">
+                  <input autocomplete="off" type="text" id="dept_name" name="dept_name" class="form-control" placeholder="请输入部门名称">
+                </div>
+              </div>
+              <div class="form-group has-feedback">
+                <label for="org_id" class="control-label">所属组织:</label>
+                <div class="form-item">
+                  <div id="dept_porgtext" class="form-control-text">无</div>
+                  <input type="hidden" id="org_id" name="org_id">
+                </div>
+              </div>
+              <div class="form-group has-feedback">
+                <label for="dept_pid" class="control-label">上级部门:</label>
+                <div class="form-item form-item-cols">
+                  <div id="dept_ptext" class="form-control-text">无</div>
+                  <input type="hidden" id="dept_pid" name="dept_pid">
+                </div>
+              </div>
+              <div class="form-group has-feedback">
+                <label for="emp_id" class="control-label">负责人:</label>
+                <div class="form-item">
+                  <select id="emp_id" name="emp_id" class="selectpicker show-tick form-control select-null"></select>
+                </div>
+              </div>
+
+              <div class="form-btns" style="width: 538px;">
+                <button type="submit" class="btn btn-primary btn-mw" data-type="saveAndAdd">保存并新增</button>
+                <button type="submit" class="btn btn-mw" data-type="save">保存</button>
+                <button type="button" class="btn btn-default btn-mw" data-dismiss="modal">取消</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 定义页面内容区域 end  -->
+  </div>
+
+  @@include('../tpl/footer.htm', {"pageJsPath": ["base_data/org_chart"]})
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="renderer" content="webkit" />
+  <title>按钮</title>
+  <base href="../../" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="stylesheet" href="css/common/bootstrap.css" />
+  <link rel="stylesheet" href="css/common/common.css" /> 
+</head>
+
+
+<body>
+  <div class="iframe-content-container">
+    <!-- 定义页面内容区域 start  -->
+    <h1>按钮说明</h1>
+    <button type="button" class="btn">（初始样式）btn</button>
+    <button type="button" class="btn btn-default">（默认样式）Default</button>
+    <button type="button" class="btn btn-primary">（首选项）Primary</button>
+    <button type="button" class="btn btn-success">（成功）Success</button>
+    <button type="button" class="btn btn-info">（一般信息）Info</button>
+    <button type="button" class="btn btn-warning">（警告）Warning</button>
+    <button type="button" class="btn btn-danger">（危险）Danger</button>
+    <button type="button" class="btn btn-link">（链接）Link</button>
+    <h3>尺寸</h3>
+    <p>需要让按钮具有不同尺寸吗？使用
+      <code>.btn-lg</code>、
+      <code>.btn-sm</code> 或
+      <code>.btn-xs</code> 就可以获得不同尺寸的按钮。使用
+      <code>.btn-mw</code>设置固定最小宽度120px。</p>
+    <button class="btn btn-default btn-sm">
+      <i class="iconfont icon-bangzhu"></i>小按钮</button>
+    <button disabled="disabled" class="btn btn-default btn-sm">
+      <i class="iconfont icon-bangzhu"></i>小按钮</button>
+    <button class="btn btn-primary">默认按钮</button>
+    <button class="btn btn-mw">固宽</button>
+    <h3>鼠标悬停加层样式</h3>
+    <p>便签添加class类
+      <code>.hover-layer</code>
+    </p>
+    <div role="button" class="hover-layer">悬停加层</div>
+    <!-- 定义页面内容区域 end  -->
+  </div>
+
+  <script src="js/libs/jquery-3.2.1.js"></script>
+<script src="js/libs/bootstrap.js"></script>
+<script src="js/common/utils.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/plugins/jquery.bootstrap.validator.js"></script>
+
+
+  <script>
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+
+  </script>
+</body>
+
+</html>

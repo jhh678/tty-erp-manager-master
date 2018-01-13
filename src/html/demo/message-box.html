@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+@@include('../tpl/header.htm', {"title": "消息弹框", "pageCssPath": [], "baseHref": "../../"})
+
+<body>
+  <div class="iframe-content-container">
+    <!-- 定义页面内容区域 start  -->
+    <h4>MessageBox 弹框</h4>
+    <p>模拟系统的消息提示框而实现的一套模态对话框组件，用于消息提示、确认消息和提交内容</p>
+    <div class="panel panel-default">
+      <div class="panel-body">从场景上说，MessageBox 的作用是美化系统自带的 alert、confirm 和 prompt，因此适合展示较为简单的内容。如果需要弹出较为复杂的内容，请使用 Modal。</div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">消息提示</h4>
+        <p>当用户进行操作时会被触发，该对话框中断用户操作，直到用户确认知晓后才可关闭。</p>
+      </div>
+      <div class="panel-body">
+        <button class="btn btn-link" onclick="openAlert()">点击打开Message Box(alert)</button>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            调用$alert方法即可打开消息提示，它模拟了系统的 alert，无法通过按下 ESC 或点击框外关闭。此例中接收了两个参数，message和title。值得一提的是，窗口被关闭后，它默认会返回一个Promise对象便于进行后续操作的处理。若不确定浏览器是否支持Promise，可自行引入第三方
+            polyfill 或像本例一样使用回调进行后续处理。
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">确认消息</h4>
+        <p>提示用户确认其已经触发的动作，并询问是否进行此操作时会用到此对话框。</p>
+      </div>
+      <div class="panel-body">
+        <button class="btn btn-link" onclick="openConfirm()">点击打开Message Box(confirm)</button>
+        <div class="panel">
+          <div class="panel-body">
+            调用$confirm方法即可打开消息提示，它模拟了系统的 confirm。Message Box 组件也拥有极高的定制性，我们可以传入options作为第三个参数，它是一个字面量对象。注意，第一个参数可以是一个String类型，也可以是一个String数组；第二个参数title必须定义为String类型(默认值为"操作确认提示")，如果是Object，会被理解为options。在这里我们用了
+            Promise 来处理后续响应。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 定义页面内容区域 end  -->
+  </div>
+
+  @@include('../tpl/footer.htm', {"pageJsPath": []})
+  <script>
+    function openAlert() {
+      $.messageBox.alert({
+        'title': '提示标题',
+        'content': '提示内容主体',
+        'onConfirm': function () {
+          console.log("回调触发后隐藏提示框");
+        }
+      });
+    }
+
+    function openConfirm() {
+      $.messageBox.confirm({
+        'title': '删除提示',
+        'content': '删除后数据不可恢复',
+        'cancelContent': '确定要删除吗？',
+        'onConfirm': function () {
+          console.log("OK - 回调触发后隐藏提示框");
+        },
+        'onCancel': function () {
+          console.log("Cancel-回调触发后隐藏提示框");
+        }
+      });
+    }
+
+  </script>
+</body>
+
+</html>

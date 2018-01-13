@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+@@include('../tpl/header.htm', {"title": "下拉菜单", "pageCssPath": [], "baseHref": "../../"})
+<style>
+
+
+</style>
+
+<body>
+  <div class="iframe-content-container">
+    <!-- 定义页面内容区域 start  -->
+    <div class="form-demo-header">
+      <h3>下拉菜单</h3>
+      <div class="text-muted">用于显示链接列表的可切换、有上下文的菜单。</div>
+    </div>
+    <section class="panel panel-default">
+      <div class="panel-heading">
+        <h4>基本用法</h4>
+        <div class="text-muted">将下拉菜单触发器和下拉菜单都包裹在 .dropdown 里，或者另一个声明了 position: relative; 的元素。然后加入组成菜单的 HTML 代码。</div>
+      </div>
+      <div class="panel-body">
+        <div class="dropdown">
+          <button type="button" class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="true">
+            Dropdown
+            <i class="iconfont icon-zhankai"></i>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li>
+              <a href="#">Action</a>
+            </li>
+            <li>
+              <a href="#">Another action</a>
+            </li>
+            <li>
+              <a href="#">Something else here</a>
+            </li>
+            <li>
+              <a href="#">Separated link</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="panel panel-default">
+      <div class="panel-heading">
+        <h4>向上弹出</h4>
+        <div class="text-muted">通过为下拉菜单的父元素设置 .dropup 类，可以让菜单向上弹出（默认是向下弹出的）。</div>
+      </div>
+      <div class="panel-body">
+        <div class="dropup">
+          <button type="button" class="btn btn-default dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="true">
+            Dropup
+            <i class="iconfont icon-zhankai"></i>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <li>
+              <a href="#">Action</a>
+            </li>
+            <li>
+              <a href="#">Another action</a>
+            </li>
+            <li>
+              <a href="#">Something else here</a>
+            </li>
+            <li>
+              <a href="#">Separated link</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="panel panel-default">
+      <div class="panel-heading">
+        <h4>对齐&标题&分割线</h4>
+        <div class="text-muted">
+          默认情况下，下拉菜单自动沿着父元素的上沿和左侧被定位为 100% 宽度。 为 .dropdown-menu 添加 .dropdown-menu-right 类可以让菜单右对齐。 在任何下拉菜单中均可通过添加标题(.dropdown-header)来标明一组动作。
+          为下拉菜单添加一条分割线(.divider)，用于将多个链接分组。
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="dropdown clearfix">
+          <button type="button" class="btn btn-default dropdown-toggle pull-right" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="true">
+            Dropup
+            <i class="iconfont icon-zhankai"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu3">
+            <li class="dropdown-header">Dropdown header</li>
+            <li>
+              <a href="#">Action</a>
+            </li>
+            <li>
+              <a href="#">Another action</a>
+            </li>
+            <li class="dropdown-header">Dropdown header</li>
+            <li>
+              <a href="#">Something else here</a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+              <a href="#">Separated link</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="panel panel-default">
+      <div class="panel-heading">
+        <h4>禁用的菜单项</h4>
+        <div class="text-muted">为下拉菜单中的
+          <code>&lt;li&gt;</code> 元素添加
+          <code>.disabled</code> 类，从而禁用相应的菜单项。</div>
+      </div>
+      <div class="panel-body">
+        <div class="dropdown">
+          <button type="button" class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="true">
+            Dropdown
+            <i class="iconfont icon-zhankai"></i>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li>
+              <a href="#">Action</a>
+            </li>
+            <li>
+              <a href="#">Another action</a>
+            </li>
+            <li class="disabled">
+              <a href="#">Something else here</a>
+            </li>
+            <li class="disabled">
+              <a href="#">Separated link</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- 定义页面内容区域 end  -->
+  </div>
+
+  @@include('../tpl/footer.htm', {"pageJsPath": []})
+
+  <script>
+
+
+  </script>
+</body>
+
+</html>

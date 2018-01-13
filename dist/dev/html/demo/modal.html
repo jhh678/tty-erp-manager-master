@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="renderer" content="webkit" />
+  <title>模态框</title>
+  <base href="../../" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="stylesheet" href="css/common/bootstrap.css" />
+  <link rel="stylesheet" href="css/common/common.css" /> 
+</head>
+
+<style>
+  .subPageContent .panel:first-child {
+    margin-top: 10px;
+  }
+
+  .b-message-box__content {
+    margin: 20px 0;
+  }
+
+  .b-message-box__content .b-message-box__text {
+    margin: 0;
+    text-align: center;
+    color: #333;
+    line-height: 1;
+  }
+
+  .b-message-box__content .b-message-box__text div:not(:first-child) {
+    margin-top: 10px;
+  }
+
+</style>
+
+<body>
+  <div class="iframe-content-container">
+    <!-- 定义页面内容区域 start  -->
+    <div class="form-demo-header">
+      <h3>模态框</h3>
+      <div class="text-muted">用于新增编辑类的弹窗，也可用于实现弹出确认框等</div>
+    </div>
+    <section class="panel panel-default">
+      <div class="panel-heading">
+        <h4>普通模态框</h4>
+        <div class="text-muted">基本用法</div>
+      </div>
+      <div class="panel-body">
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">打开模态框</button>
+        <div tabindex="-1" id="myModal" role="dialog" class="modal fade" aria-hidden="true" aria-labelledby="myModalLabel">
+          <div role="document" class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" aria-label="close" class="btn close" data-dismiss="modal" aria-hidden="true">
+                  <i aria-hidden="true" class="iconfont icon-close"></i>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">demo modal</h4>
+              </div>
+              <div class="modal-body">
+                <p>This is a simple modal.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-mw" data-dismiss="modal">取消</button>
+                <button type="button" data-action="auto-focus" class="btn btn-primary btn-mw">确定</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="panel panel-default">
+      <div class="panel-heading">
+        <h4>居中模态框</h4>
+        <div class="text-muted">用于确认框</div>
+      </div>
+      <div class="panel-body">
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#confirmModal">删除</button>
+        <div tabindex="-1" id="confirmModal" role="dialog" class="modal fade" aria-hidden="true" aria-labelledby="confirmModalLabel">
+          <div role="document" class="modal-dialog modal-sm modal-align-middle">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" aria-label="close" class="btn close" data-dismiss="modal" aria-hidden="true">
+                  <i aria-hidden="true" class="iconfont icon-close"></i>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">删除提示</h4>
+              </div>
+              <div class="modal-body">
+                <div class="b-message-box__content">
+                  <div class="b-message-box__text">
+                    <div>删除后数据不可恢复</div>
+                    <div>确定要删除吗？</div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-mw" data-dismiss="modal">否</button>
+                <button type="button" data-action="auto-focus" class="btn btn-primary btn-mw">是</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="panel panel-default">
+      <div class="panel-heading">
+        <h4>新增编辑模态框</h4>
+        <div class="text-muted">包含表单</div>
+      </div>
+      <div class="panel-body">
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#formModal">新增|编辑</button>
+        <div tabindex="-1" id="formModal" role="dialog" class="modal fade" aria-hidden="true" aria-labelledby="formModalLabel">
+          <div role="document" class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" aria-label="close" class="btn close" data-dismiss="modal" aria-hidden="true">
+                  <i aria-hidden="true" class="iconfont icon-close"></i>
+                </button>
+                <h4 class="modal-title" id="formModalLabel">新增|编辑</h4>
+              </div>
+              <div class="modal-body">
+                <form class="b-form form-horizontal" id="form-validator" action="/api/submitActivies">
+                  <div class="form-group required has-feedback">
+                    <label for="name" class="control-label" style="width: 80px;">活动名称</label>
+                    <div class="form-item" style="margin-left: 80px;">
+                      <input autocomplete="off" type="text" placeholder="请输入活动名称" name="activiesName" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group required has-feedback">
+                    <label for="region" class="control-label" style="width: 80px;">活动区域</label>
+                    <div class="form-item" style="margin-left: 80px;">
+                      <select id="activiesArea1" class="form-control selectpicker select-null" name="activiesArea" placeholder="请选择活动区域">
+                        <option></option>
+                        <option value="1">北京</option>
+                        <option value="2">上海</option>
+                        <option value="3">广州</option>
+                        <option value="4">深圳</option>
+                        <option value="5">重庆</option>
+                        <option value="6">南昌</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group required">
+                    <label for="type" class="control-label" style="width: 80px;">活动性质</label>
+                    <div class="form-item" style="margin-left: 80px;">
+                      <div class="b-opt" style="min-width: 160px;">
+                        <input class="b-checkbox" type="checkbox" id="checkbox11" value="option1" name="activiesKind2">
+                        <label for="checkbox11">美食/餐厅线上活动</label>
+                      </div>
+                      <div class="b-opt" style="min-width: 160px;">
+                        <input class="b-checkbox" type="checkbox" id="checkbox21" value="option2" name="activiesKind2">
+                        <label for="checkbox21">地推活动</label>
+                      </div>
+                      <div class="b-opt" style="min-width: 160px;">
+                        <input class="b-checkbox" type="checkbox" id="checkbox31" value="option3" name="activiesKind2">
+                        <label for="checkbox31">线下主题活动</label>
+                      </div>
+                      <div class="b-opt" style="min-width: 160px;">
+                        <input class="b-checkbox" type="checkbox" id="checkbox41" value="option4" name="activiesKind2">
+                        <label for="checkbox41">单纯品牌曝光</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group required">
+                    <label for="resource" class="control-label" style="width: 80px;">特殊资源</label>
+                    <div class="form-item" style="margin-left: 80px;">
+                      <div class="b-opt" style="min-width: 160px;">
+                        <input class="b-radio" type="radio" name="specialRes2" id="radio11" value="speRes1">
+                        <label for="radio11">线上品牌商赞助</label>
+                      </div>
+                      <div class="b-opt" style="min-width: 160px;">
+                        <input class="b-radio" type="radio" name="specialRes2" id="radio21" value="speRes2">
+                        <label for="radio21">线下场地免费</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group has-feedback">
+                    <label for="desc" class="control-label" style="width: 80px;">活动形式</label>
+                    <div class="form-item" style="margin-left: 80px;">
+                      <textarea type="textarea" rows="2" autocomplete="off" placeholder="请输入活动形式" name="activiesPattern" class="form-control"></textarea>
+                    </div>
+                  </div>
+                  <div class="form-btns" style="width: 538px;">
+                    <button type="submit" class="btn btn-primary btn-mw" data-type="saveAndAdd">保存并新增</button>
+                    <button type="submit" class="btn btn-mw" data-type="save">保存</button>
+                    <button type="button" class="btn btn-default btn-mw" data-dismiss="modal">取消</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 定义页面内容区域 end  -->
+  </div>
+
+  <script src="js/libs/jquery-3.2.1.js"></script>
+<script src="js/libs/bootstrap.js"></script>
+<script src="js/common/utils.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/plugins/jquery.bootstrap.validator.js"></script>
+
+
+
+  <script>
+    $(function () {
+      $('#form-validator').find('[name="activiesArea"]').on('change', function (e) {
+          /* Revalidate the activiesArea when it is changed */
+          $('#form-validator').formValidation('revalidateField', 'activiesArea');
+        }).end()
+        .on('init.field.fv', function (e, data) {
+          // data.field   --> The field name
+          // data.element --> The field element
+          if (data.field === 'activiesKind2' || data.field === 'specialRes2') {
+            ($(e.target).closest('.form-item')).append(data.element.data('fv.icon'));
+          }
+        }).formValidation({
+          excluded: ':disabled',
+          fields: {
+            activiesName: {
+              validators: {
+                notEmpty: {
+                  message: '活动名称不能为空'
+                },
+                regexp: {
+                  regexp: /^[\u4e00-\u9fa5a-zA-Z0-9]+$/,
+                  message: '活动名称只能输入汉字、英文、字母和数字'
+                }
+              }
+            },
+            activiesArea: {
+              validators: {
+                notEmpty: {
+                  message: '活动区域不能为空'
+                }
+              }
+            },
+            activiesKind2: {
+              validators: {
+                notEmpty: {
+                  message: '活动性质不能为空'
+                }
+              }
+            },
+            specialRes2: {
+              validators: {
+                notEmpty: {
+                  message: '特殊资源不能为空'
+                }
+              }
+            },
+            activiesPattern: {
+              validators: {
+                stringLength: {
+                  message: '请输入文字长度不超过20',
+                  max: 20
+                }
+              }
+            }
+          }
+        }).on('success.form.fv', function (e) {
+          // Prevent form submission
+          e.preventDefault();
+
+          var $form = $(e.target),
+            $button = $form.data('formValidation').getSubmitButton();
+          $form.data('formValidation');
+
+          // Use Ajax to submit form data
+          $.ajax({
+            url: $form.attr('action'),
+            type: 'POST',
+            data: $form.serialize(),
+            success: function (result) {
+              // ... Process the result ...
+              switch ($button.data('type')) {
+                case 'saveAndAdd':
+                  console.log('saveAndAdd');
+                  break;
+
+                case 'save':
+                  console.log('save');
+                  break;
+                default:
+                  console.log('default');
+                  break;
+              }
+            }
+          });
+        });
+    });
+
+  </script>
+</body>
+
+</html>

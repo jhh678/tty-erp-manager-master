@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+@@include('../tpl/header.htm', {"title": "表格", "pageCssPath": [], "baseHref": "../../"})
+<style>
+  .table-demo {
+    padding: 15px 0;
+  }
+
+</style>
+
+<body>
+  <div class="iframe-content-container">
+    <!-- 定义页面内容区域 start  -->
+    <div class="panel">
+      <div class="panel-body">
+        <h3>表格组件demo</h3>
+        <p>由GridManager.js修改而来，文档部分可参考
+          <a href="http://gridmanager.lovejavascript.com/api/index.html" target="_blank">GridManagerAPI文档</a>
+          <br> 修改内容说明
+          <ul>
+            <li>添加初始化自定义列显示隐藏，visible: false时隐藏，默认显示</li>
+            <li>添加公共方法getCheckedMs，获取选中项的唯一键值组</li>
+            <li>支持点击行选中</li>
+          </ul>
+        </p>
+      </div>
+    </div>
+    <div class="table-demo">
+      <table grid-manager="demoOne"></table>
+    </div>
+    <!-- 定义页面内容区域 end  -->
+  </div>
+
+  @@include('../tpl/footer.htm', {"pageJsPath": []})
+
+  <script>
+    $('table').GM({
+      gridManagerName: 'test',
+      // disableCache: true,
+      width: 'auto',
+      height: 'auto',
+      disabledKey: 'status',
+      supportAjaxPage: true,
+      supportSorting: true,
+      ajax_url: 'http://rap.taobao.org/mockjsdata/29745/api/demo/table_list',
+      ajax_type: 'POST',
+      query: {
+        pluginId: 1
+      },
+      pageSize: 10,
+      columnData: [{
+        key: 'number',
+        width: '100px',
+        minWidth: '100px',
+        text: '仓库编号',
+        sorting: 'DESC'
+      }, {
+        key: 'name',
+        text: '仓库名称',
+        sorting: ''
+      }, {
+        key: 'orgName',
+        text: '所属组织'
+      }, {
+        key: 'manager',
+        text: '仓管'
+      }, {
+        key: 'phone',
+        text: '联系电话'
+      }, {
+        key: 'mark',
+        text: '备注',
+        visible: false
+      }, {
+        key: 'action',
+        text: '操作',
+        width: '146px',
+        minWidth: '146px',
+        align: 'center',
+        template: function (action, rowObject) {
+          return '<span class="plugin-action edit-action" learnLink-id="' + rowObject.id +
+            '">编辑</span>' +
+            '<span class="plugin-action del-action" learnLink-id="' + rowObject.id +
+            '">删除</span>';
+        }
+      }],
+      // ajax_data: {
+      //   type: 0,
+      //   code: 0,
+      //   message: '',
+      //   resultdata: {
+      //     rows: 1,
+      //     page: 1,
+      //     records: 5,
+      //     total: 1,
+      //     data: [{
+      //         id: 1000,
+      //         number: 'SGereewe234343',
+      //         name: '仓库名称额为5',
+      //         orgName: '足够地',
+      //         manager: '长广公司给你',
+      //         phone: '1888888888',
+      //         mark: '备注设计公司',
+      //         status: 1
+      //       },
+      //       {
+      //         id: 1001,
+      //         number: 'SGereewee554454',
+      //         name: '仓库名称额为77',
+      //         orgName: '足够地s4e',
+      //         manager: '长广公司给你sf',
+      //         phone: '1888888868',
+      //         mark: '备注设计公司sfse',
+      //         status: 1
+      //       },
+      //       {
+      //         id: 1002,
+      //         number: 'SGereewe23433443',
+      //         name: '仓库名称额为6',
+      //         orgName: '足够地343',
+      //         manager: '长广公司给你445',
+      //         phone: '1888888887',
+      //         mark: '备注设计公司344',
+      //         status: 0
+      //       },
+      //       {
+      //         id: 1003,
+      //         number: 'SGefghfghh55',
+      //         name: '仓库名称额678',
+      //         orgName: '足够地s455e',
+      //         manager: '长广公司给你se4hf',
+      //         phone: '1888888867',
+      //         mark: '备注公司eys',
+      //         status: 1
+      //       },
+      //       {
+      //         id: 1004,
+      //         number: 'eer6y5746',
+      //         name: '仓库名称额为99',
+      //         orgName: '足够地jieg',
+      //         manager: '长广公司给你se',
+      //         phone: '1888888865',
+      //         mark: '备注设计ewrer',
+      //         status: 1
+      //       }
+      //     ]
+      //   }
+      // },
+      pagingBefore: function (query) {
+        console.log('pagingBefore', query);
+      },
+      pagingAfter: function (data) {
+        console.log('pagingAfter', data);
+      },
+      sortingBefore: function (data) {
+        console.log('sortBefore', data);
+      },
+      sortingAfter: function (data) {
+        console.log('sortAfter', data);
+      },
+      adjustBefore: function (event) {
+        console.log('adjustBefore', event);
+      },
+      adjustAfter: function (event) {
+        console.log('adjustAfter', event);
+      },
+      dragBefore: function (event) {
+        console.log('dragBefore', event);
+      },
+      dragAfter: function (event) {
+        console.log('dragAfter', event);
+      }
+    });
+
+    $(function () {
+      $('.grid-manager').on('click', '.edit-action', function () {
+        console.log('点击编辑操作');
+      });
+      $('.grid-manager').on('click', '.del-action', function () {
+        console.log('点击删除操作');
+      });
+    });
+
+  </script>
+</body>
+
+</html>

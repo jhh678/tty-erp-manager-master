@@ -1,0 +1,107 @@
+// radio 样式
+.b-opt {
+  float: left;
+  margin-right: 15px;
+  &.no-label {
+    margin-right: 0;
+    .b-radio+label {
+      padding-left: 16px;
+      margin-bottom: 0px;
+    }
+  }
+}
+
+.b-radio {
+  position: absolute;
+  display: none;
+}
+
+.b-radio[disabled] {
+  cursor: not-allowed;
+}
+
+.b-radio+label {
+  position: relative;
+  display: block;
+  margin-bottom: 0;
+  padding-left: 22px;
+  cursor: pointer;
+  height: 30px;
+  line-height: 30px;
+}
+
+.b-radio+label:hover:before {
+  animation-duration: 0.4s;
+  animation-fill-mode: both;
+  animation-name: hover-color;
+}
+
+.b-radio+label:before {
+  position: absolute;
+  top: 7px;
+  left: 0;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  content: '';
+  border: 1px solid #666;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.b-radio+label:after {
+  position: absolute;
+  display: none;
+  content: '';
+}
+
+.b-radio[disabled]+label {
+  cursor: not-allowed;
+}
+
+.b-radio[disabled]+label:hover,
+.b-radio[disabled]+label:before,
+.b-radio[disabled]+label:after {
+  cursor: not-allowed;
+}
+
+.b-radio[disabled]+label:hover:before {
+  animation-name: none;
+}
+
+.b-radio:checked+label:before {
+  animation-name: none;
+}
+
+.b-radio:checked+label:after {
+  display: block;
+}
+
+.b-radio+label:before {
+  border-radius: 50%;
+}
+
+.b-radio+label:after {
+  top: 12px;
+  left: 5px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00a53c;
+}
+
+.b-radio:checked+label:before {
+  border: 1px solid #00a53c;
+}
+
+.b-radio:checked[disabled]+label:before {
+  border: 1px solid #ccc;
+}
+
+.b-radio:checked[disabled]+label:after {
+  background: #ccc;
+}
+
+.b-radio[disabled]+label:before {
+  border-color: #ccc;
+}

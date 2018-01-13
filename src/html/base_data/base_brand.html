@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+@@include('../tpl/header.htm', {"title": "商品品牌", "pageCssPath": ["base_data/base_brand"], "baseHref": "../../"})
+<style>
+  .table-demo {
+    padding: 15px 0;
+  }
+
+</style>
+
+<body>
+  <div class="iframe-content-container">
+    <!-- 定义页面内容区域 start  -->
+    <div class="search-wrap">
+      <form class="b-form form-inline">
+        <div class="form-group">
+          <label for="user" class="control-label key-word">关键字</label>
+          <div class="form-item">
+            <input autocomplete="off" placeholder="请输名称" size="sm" type="text" class="form-control input-sm">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-btns">
+            <button type="button" class="btn btn-primary btn-sm">检索</button>
+            <button type="button" class="btn btn-default btn-sm btn-reset">重置</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="option-btns-wrap">
+      <button type="button" class="btn btn-primary btn-sm" id="depotAdd">
+        <i class="iconfont icon-xinzeng"></i>新增</button>
+    </div>
+    <div class="table-demo">
+      <table grid-manager="demoOne"></table>
+    </div>
+    <div tabindex="-1" id="formModal" role="dialog" class="modal fade" aria-hidden="true" aria-labelledby="formModalLabel">
+      <div role="document" class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" aria-label="close" class="btn close" data-dismiss="modal" aria-hidden="true">
+              <i aria-hidden="true" class="iconfont icon-close"></i>
+            </button>
+            <h4 class="modal-title" id="formModalLabel"></h4>
+          </div>
+          <div class="modal-body">
+            <form class="b-form form-horizontal" id="form-validator" action="/api/submitActivies">
+              <div class="form-group has-feedback">
+                <label for="depot_number" class="control-label" style="width: 80px;">编号</label>
+                <div class="form-item" style="margin-left: 80px;">
+                  <input autocomplete="off" type="text" disabled name="depotNumber" class="form-control">
+                </div>
+              </div>
+              <div class="form-group required has-feedback">
+                <label for="brand_name" class="control-label" style="width: 80px;">名称</label>
+                <div class="form-item" style="margin-left: 80px;">
+                  <input autocomplete="off" type="text" placeholder="手动录入" name="brandName" class="form-control">
+                </div>
+              </div>
+              <div class="form-btns" style="width: 538px;">
+                <button type="submit" class="btn btn-primary btn-mw" data-type="saveAndAdd">保存并新增</button>
+                <button type="submit" class="btn btn-mw" data-type="save">保存</button>
+                <button type="button" class="btn btn-default btn-mw" data-dismiss="modal">取消</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 定义页面内容区域 end  -->
+  </div>
+
+  @@include('../tpl/footer.htm', {"pageJsPath": ["base_data/base_brand"]})
+</body>
+
+</html>

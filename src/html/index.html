@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+@@include('tpl/header.htm', {"title": "首页", "pageCssPath": ["index"], "baseHref": "../"})
+
+<body class="index-body">
+  @@include('tpl/menu.htm')
+
+  <div class="page-content">
+    @@include('tpl/navbar.htm')
+
+    <div class="container-fluid">
+      <div class="sub-page">
+        <div class="sub-page-content panel panel-default">
+          <!-- 定义页面内容区域 start  -->
+          <!-- <iframe src="html/home.html" frameborder="0" id="iframe_0" class="sub-page-iframe"></iframe> -->
+          <!-- 定义页面内容区域 end  -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  @@include('tpl/footer.htm', {"pageJsPath": ["index"]})
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+@@include('../tpl/header.htm', {"title": "下拉选择", "pageCssPath": [], "baseHref": "../../"})
+
+<body>
+  <div class="iframe-content-container">
+    <!-- 定义页面内容区域 start  -->
+    <h4>基础用法</h4>
+    <div class="text-muted">适用广泛的基础单选</div>
+    <div class="col-sm-24" style="margin-bottom: 20px;">
+      <select id="basic" class="selectpicker show-tick form-control">
+        <option selected>11</option>
+        <option>cow</option>
+        <option>bull</option>
+        <option>bull1</option>
+        <option>bull2</option>
+        <option class="get-class" disabled>ox</option>
+      </select>
+    </div>
+
+    <h4>默认空</h4>
+    <div class="text-muted">默认值为空</div>
+    <select id="selectWithNull" class="selectpicker show-tick form-control select-null">
+      <option></option>
+      <option>cow</option>
+      <option>bull</option>
+    </select>
+
+    <h4>禁用状态</h4>
+    <div class="text-muted">选择器不可用状态</div>
+    <select id="disabled" class="selectpicker show-tick form-control select-null" disabled>
+      <option></option>
+      <option selected>cow</option>
+      <option>bull</option>
+    </select>
+
+    <h4>可搜索</h4>
+    <div class="text-muted">可以利用搜索功能快速查找选项</div>
+    <div class="col-sm-24" style="margin-bottom: 20px;">
+      <select id="search" class="selectpicker show-tick form-control select-sm select-null" data-live-search="true">
+        <option></option>
+        <option>黃金糕</option>
+        <option>宮保雞丁</option>
+        <option>北京烤鴨</option>
+        <option>蛤蜊蒸蛋</option>
+        <option selected>Bla</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <h4>基础多选</h4>
+    <div class="text-muted">适用性较广的基础多选，用 Tag 展示已选项</div>
+    <div class="col-sm-24" style="margin-bottom: 20px;">
+      <select id="tokens" class="selectpicker select-null" multiple data-live-search="true">
+        <option></option>
+        <option value="32">黃金糕</option>
+        <option value="33">宮保雞丁</option>
+        <option value="34">北京烤鴨</option>
+        <option>蛤蜊蒸蛋</option>
+      </select>
+    </div>
+
+    <h4>支持自定义底部操作</h4>
+    <div class="text-muted">支持自定义底部操作，比如添加操作</div>
+    <div class="col-sm-24" style="margin-bottom: 20px;">
+      <select id="done" class="selectpicker select-null" data-done-button="true">
+        <option></option>
+        <option>Apple</option>
+        <optio>Banana</option>
+          <option>Orange</option>
+          <option>Apple2</option>
+          <option>Banana2</option>
+          <option>Orange2</option>
+          <option>Apple2</option>
+          <option>Banana2</option>
+          <option>Orange2</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- 定义页面内容区域 end  -->
+  </div>
+
+  @@include('../tpl/footer.htm', {"pageJsPath": []})
+  <script>
+    $('#basic').selectpicker('ajaxRequest', {
+      url: 'http://rap.taobao.org/mockjsdata/29745/api/demo/select_list',
+      template: function (selectObject) {
+        return '<option value="' + selectObject.id + '">' + selectObject.name + ' 123</option>';
+      }
+    });
+
+    $('#done').selectpicker('edit', function () {
+      $('#done').selectpicker('editValue', {
+        name: '黄焖鸡',
+        value: '11'
+      });
+      $('#done').selectpicker('refresh')
+    });
+
+    $('#basic').on('change', function () {
+      console.log($('#basic').val());
+    });
+
+  </script>
+</body>
+
+</html>

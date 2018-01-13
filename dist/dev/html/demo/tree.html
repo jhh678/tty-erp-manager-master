@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="renderer" content="webkit" />
+  <title>树形控件</title>
+  <base href="../../" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="stylesheet" href="css/common/bootstrap.css" />
+  <link rel="stylesheet" href="css/common/common.css" /> 
+</head>
+
+<style>
+  /* 这里编写demo页面样式 */
+
+</style>
+
+<body>
+  <div class="iframe-content-container">
+    <!-- 定义页面内容区域 start  -->
+    <div class="container-fluid">
+      <div class="form-demo-header">
+        <h3>Tree 树形控件</h3>
+        <div class="text-muted">用清晰的层级结构展示信息，可展开或折叠。</div>
+      </div>
+      <section class="panel panel-default">
+        <div class="panel-heading">
+          <h4>基础用法</h4>
+          <div class="text-muted">基础的树形结构展示。</div>
+        </div>
+        <div class="panel-body">
+          <ul id="treeDemo" class="ztree"></ul>
+        </div>
+      </section>
+      <section class="panel panel-default">
+        <div class="panel-heading">
+          <h4>可选择</h4>
+          <div class="text-muted">适用于需要选择层级时使用。</div>
+        </div>
+        <div class="panel-body">
+
+          <ul id="treeDemo1" class="ztree"></ul>
+
+        </div>
+      </section>
+      <section class="panel panel-default">
+        <div class="panel-heading">
+          <h4>节点过滤</h4>
+          <div class="text-muted">通过关键字过滤字节点</div>
+          <div class="text-muted">在需要对节点进行过滤时，调用Tree实例的filter方法，参数为关键字。</div>
+        </div>
+        <div class="panel-body">
+          <div class="clearfix b-tree-input">
+            <input id="key" autocomplete="off" placeholder="输入关键字进行过滤" type="text" rows="2" validateevent="true" class="b-input__inner form-control">
+            <div class="b-query-button active" onclick="searchNode()">检索</div>
+          </div>
+          <ul id="treeDemo2" class="ztree ztree-serach"></ul>
+        </div>
+      </section>
+      <section class="panel panel-default">
+        <div class="panel-heading">
+          <h4>下拉树</h4>
+          <a href="/html/demo/select-tree.html">跳转到下拉树</a>
+        </div>
+      </section>
+    </div>
+    <!-- 定义页面内容区域 end  -->
+  </div>
+
+  <script src="js/libs/jquery-3.2.1.js"></script>
+<script src="js/libs/bootstrap.js"></script>
+<script src="js/common/utils.js"></script>
+<script src="js/common/common.js"></script>
+<script src="js/plugins/jquery.bootstrap.validator.js"></script>
+ <script src="js//libs/tree-exhide.js">
+  </script>
+  
+
+
+  <script>
+    /* 这里编写demo需要js */
+    var setting = {
+      view: {
+        showIcon: showIconForTree,
+        showLine: false
+      },
+      callback: {
+        onClick: onClick
+      },
+      async: {
+        dataType: "text",
+        enable: true,
+        type: "get",
+        url: "http://rap.taobao.org/mockjsdata/29745/api/demo/tree_list",
+      }
+    };
+    var setting1 = {
+      check: {
+        enable: true
+      },
+      data: {
+        simpleData: {
+          enable: true
+        }
+      },
+      callback: {
+        onCheck: onCheck
+      }
+    };
+    var setting2 = {
+      data: {
+        key: {
+          name: "name"
+        },
+        simpleData: {
+          enable: true
+        }
+      }
+    };
+
+    var zNodes = [{
+        name: "一级 1",
+        children: [{
+          name: "一级 1-1",
+          children: [{
+              name: "一级 1-1-1"
+            },
+            {
+              name: "一级 1-1-2"
+            },
+            {
+              name: "一级 1-1-3"
+            },
+            {
+              name: "一级 1-1-4"
+            }
+          ]
+        }]
+      },
+      {
+        name: "二级 1",
+        children: [{
+            name: "二级 2-1"
+          },
+          {
+            name: "二级 2-2"
+          },
+          {
+            name: "二级 2-3"
+          }
+        ]
+      },
+      {
+        name: "三级 1",
+        open: true,
+        children: [{
+          name: "二级 1-1",
+          open: true,
+          children: [{
+              name: "三级 1-1-1"
+            },
+            {
+              name: "三级 1-1-2"
+            },
+            {
+              name: "三级 1-1-3"
+            },
+            {
+              name: "三级 1-1-4"
+            }
+          ]
+        }]
+      }
+    ];
+    var zNodes1 = [{
+        name: "一级 1",
+        open: true,
+        children: [{
+          name: "二级 1-1",
+          children: [{
+              name: "三级 1-1-1",
+              valid: true,
+            },
+            {
+              name: "三级 1-1-2",
+              valid: true,
+            },
+            {
+              name: "三级 1-1-3"
+            },
+            {
+              name: "三级 1-1-4"
+            }
+          ]
+        }]
+      },
+      {
+        name: "二级 1",
+        children: [{
+            name: "二级 2-1"
+          },
+          {
+            name: "二级 2-2"
+          },
+          {
+            name: "二级 2-3"
+          }
+        ]
+      }
+    ];
+    var zNodes2 = [{
+        id: 1,
+        pId: 0,
+        name: "一级 1",
+        open: true,
+        children: [{
+          id: 11,
+          pId: 1,
+          name: "一级 1-1",
+          children: [{
+              id: 111,
+              pId: 11,
+              name: "三级 1-1-1",
+              valid: true,
+            },
+            {
+              id: 112,
+              pId: 11,
+              name: "三级 1-1-2",
+              valid: true,
+              chkDisabled: true
+            },
+            {
+              id: 113,
+              pId: 11,
+              name: "三级 1-1-3"
+            },
+            {
+              id: 114,
+              pId: 11,
+              name: "三级 1-1-4"
+            }
+          ]
+        }]
+      },
+      {
+        id: 2,
+        pId: 0,
+        name: "二级 1",
+        children: [{
+            id: 21,
+            pId: 2,
+            name: "二级 2-1"
+          },
+          {
+            id: 22,
+            pId: 2,
+            name: "二级 2-2"
+          },
+          {
+            id: 23,
+            pId: 2,
+            name: "二级 2-3"
+          }
+        ]
+      }
+    ];
+    var zNodes3 = [{
+        id: 1,
+        pId: 0,
+        name: "一级 1",
+        open: true,
+        children: [{
+          id: 11,
+          pId: 1,
+          name: "一级 1-1",
+          children: [{
+              id: 111,
+              pId: 11,
+              name: "三级 1-1-1",
+              valid: true,
+            },
+            {
+              id: 112,
+              pId: 11,
+              name: "三级 1-1-2",
+              valid: true,
+              chkDisabled: true
+            },
+            {
+              id: 113,
+              pId: 11,
+              name: "三级 1-1-3"
+            },
+            {
+              id: 114,
+              pId: 11,
+              name: "三级 1-1-4"
+            }
+          ]
+        }]
+      },
+      {
+        id: 2,
+        pId: 0,
+        name: "二级 1",
+        children: [{
+            id: 21,
+            pId: 2,
+            name: "二级 2-1"
+          },
+          {
+            id: 22,
+            pId: 2,
+            name: "二级 2-2"
+          },
+          {
+            id: 23,
+            pId: 2,
+            name: "二级 2-3"
+          }
+        ]
+      }
+    ];
+
+    function onClick(e, treeId, treeNode) {
+      console.log($.fn.zTree.getZTreeObj("treeDemo").getSelectedNodes())
+    }
+
+    function onCheck(e, treeId, treeNode) {
+      var zTree = $.fn.zTree.getZTreeObj("treeDemo1"),
+        nodes = zTree.getCheckedNodes(true),
+        selectArr = [];
+      for (var i = 0, l = nodes.length; i < l; i++) {
+        if (nodes[i].isParent != true) {
+          selectArr.push(nodes[i])
+        }
+      }
+      console.log(selectArr)
+    }
+
+    function showIconForTree(treeId, treeNode) {
+      return !treeNode.isParent;
+    };
+    var nodeList = [];
+
+    function searchNode(e) {
+      var zTree = $.fn.zTree.getZTreeObj("treeDemo2");
+      var value = $('#key').val();
+      var keyType = "name";
+      if (value === "") {
+        $.fn.zTree.init($("#treeDemo2"), setting2, zNodes2);
+        return;
+      }
+      nodeList = zTree.getNodesByParamFuzzy(keyType, value);
+      nodeList = zTree.transformToArray(nodeList);
+      updateNodes(true, value, keyType);
+    }
+
+    function updateNodes(highlight, value, keyType) {
+      var zTree = $.fn.zTree.getZTreeObj("treeDemo2");
+      var allNode = zTree.transformToArray(zTree.getNodes());
+      zTree.hideNodes(allNode);
+      for (var n in nodeList) {
+        findParent(zTree, nodeList[n]);
+      }
+      zTree.showNodes(nodeList);
+      closeAll();
+      nodeList = zTree.getNodesByParamFuzzy(keyType, value);
+      for (var i = 0; i < nodeList.length; i++) {
+        zTree.selectNode(nodeList[i], true);
+      }
+    }
+
+    function findParent(zTree, node) {
+      zTree.expandNode(node, true, false, false);
+      var pNode = node.getParentNode();
+      if (pNode != null) {
+        nodeList.push(pNode);
+        findParent(zTree, pNode);
+      }
+    }
+
+    function closeAll() {
+      var zTree = $.fn.zTree.getZTreeObj("treeDemo2");
+      zTree.expandAll(false); //关闭所有节点
+      var nodes = zTree.getNodes();
+      zTree.expandNode(nodes[0], true, false, true); //打开根节点
+    }
+
+    var key;
+    $(document).ready(function () {
+      $.fn.zTree.init($("#treeDemo"), setting, null);
+      $.fn.zTree.init($("#treeDemo1"), setting1, zNodes1);
+      $.fn.zTree.init($("#treeDemo2"), setting2, zNodes2);
+    });
+
+  </script>
+</body>
+
+</html>

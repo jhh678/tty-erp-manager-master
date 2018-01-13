@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+@@include('../tpl/header.htm', {"title": "表格树", "pageCssPath": [], "baseHref": "../../"})
+
+<body>
+  <div class="iframe-content-container">
+    <!-- 定义页面内容区域 start  -->
+    <div class="">
+      <div class="">
+        <h3>表格树组件demo</h3>
+        <table class="table table-bordered table-striped table-hover">
+          <caption style="text-align: center;color: #333;font-weight: bold;">配置参数说明表</caption>
+          <thead>
+            <tr>
+              <th>字段名</th>
+              <th>使用说明</th>
+              <th>类型</th>
+              <th>是否必传</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>gridId</td>
+              <td>自定义表格树元素id,不传默认'TreeGrid' + TreeGrid.COUNT++</td>
+              <td>String</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>renderTo</td>
+              <td>配置生成的表格树插入的元素id</td>
+              <td>String</td>
+              <td>是</td>
+            </tr>
+            <tr>
+              <td>ajaxUrl</td>
+              <td>配置请求URL,不传的，将使用data参数配置的静态数据</td>
+              <td>String</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>ajaxType</td>
+              <td>请求类型，默认get</td>
+              <td>String</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>dataKey</td>
+              <td>ajax请求返回的数据key键值,默认为resultdata</td>
+              <td>String</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>disabledKey</td>
+              <td>配置启用禁用判断key,默认为空字符</td>
+              <td>String</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>width</td>
+              <td>配置表格宽度，默认100%</td>
+              <td>String</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>headerHeight</td>
+              <td>配置表头高度，默认30px</td>
+              <td>String</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>headerAlign</td>
+              <td>表头文字对齐方式，默认center，其他可选left|right</td>
+              <td>String</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>dataAlign</td>
+              <td>表格内文字对齐方式，默认left，其他可选center|right</td>
+              <td>String</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>folderColumnIndex</td>
+              <td>展开列索引，默认值0，即第一列</td>
+              <td>Number</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>indentation</td>
+              <td>缩进，默认值20</td>
+              <td>Number</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>disabledValue</td>
+              <td>禁用时的值，用于判断禁用状态，默认值'0'</td>
+              <td>String</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>emptyTemplate</td>
+              <td>数据为空时默认显示内容，默认值'&lt;div class="empty-template"&gt;数据为空&lt;/div&gt;'</td>
+              <td>String</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>columns</td>
+              <td>列配置，详细说明见《列配置说明表》</td>
+              <td>Array
+                <object>
+              </td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- 列配置说明表  -->
+        <table class="table table-bordered table-striped table-hover">
+          <caption style="text-align: center;color: #333;font-weight: bold;">列配置说明表</caption>
+          <thead>
+            <tr>
+              <th>字段名</th>
+              <th>使用说明</th>
+              <th>类型</th>
+              <th>是否必传</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>headerText</td>
+              <td>表头中列显示文字</td>
+              <td>String</td>
+              <td>是</td>
+            </tr>
+            <tr>
+              <td>dataField</td>
+              <td>配置显示字段名</td>
+              <td>String|Function</td>
+              <td>是</td>
+            </tr>
+            <tr>
+              <td>iconfont</td>
+              <td>配置文本前面显示iconfont图标class名</td>
+              <td>String|Function</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>template</td>
+              <td>配置自定义列显示内容</td>
+              <td>Function</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>width</td>
+              <td>配置列宽度</td>
+              <td>String</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>headerAlign</td>
+              <td>列表头文字对齐方式，默认center，其他可选left|right</td>
+              <td>String</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>dataAlign</td>
+              <td>列内文字对齐方式，默认left，其他可选center|right</td>
+              <td>String</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>hidden</td>
+              <td>配置是否隐藏列</td>
+              <td>Boolean</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <button class="btn btn-default btn-refresh">刷新一下</button>
+      <div id="treeGridWrap"></div>
+    </div>
+    <!-- 定义页面内容区域 end  -->
+  </div>
+
+  @@include('../tpl/footer.htm', {"pageJsPath": []})
+
+  <script>
+    /* 这里编写demo需要js */
+    $(function () {
+      var config = {
+        gridId: "treeGridDemo",
+        renderTo: "treeGridWrap",
+        ajaxUrl: 'http://rap.taobao.org/mockjsdata/29745/api/demo/tree_grid_list',
+        ajaxType: 'POST',
+        disabledKey: 'status',
+        // itemClick: function (id, index, data) {
+        //   $('#currentRow').val(id + ', ' + index + ', ' + TreeGrid.json2str(data));
+        // },
+        columns: [{
+            headerText: '组织/部门名称',
+            dataField: function (row, col) {
+              return row.tree_type === 1 ? 'org_name' : 'dept_name';
+            },
+            iconfont: function (row, col) {
+              if (row.parent_id === '0') {
+                return 'icon-zongzuzh';
+              }
+              if (row.tree_type === 1) {
+                return 'icon-zuzhi';
+              } else {
+                return 'icon-bumen';
+              }
+            }
+          },
+          {
+            headerText: '编码',
+            dataField: function (row, col) {
+              return row.tree_type === 1 ? 'org_code' : 'dept_code';
+            }
+          },
+          {
+            headerText: '简称',
+            dataField: function (row, col) {
+              return row.tree_type === 1 ? 'org_short_name' : 'dept_short_name';
+            }
+          },
+          {
+            headerText: '类型',
+            template: function (row, col) {
+              return row.tree_type === 1 ? '组织' : '部门';
+            }
+          },
+          {
+            headerText: '法人/负责人',
+            dataField: function (row, col) {
+              return row.tree_type === 1 ? 'org_legal_person' : 'dept_admin_name';
+            }
+          },
+          {
+            headerText: '状态',
+            template: function (row, col) {
+              return row.status === '1' ? '启用' : '禁用';
+            }
+          },
+          {
+            headerText: '操作',
+            dataAlign: 'left',
+            width: '165px',
+            template: function (row, col) {
+              var id = row.tree_type === 1 ? row.org_id : row.dept_id;
+              var abledText = row.status === '1' ? '禁用' : '启用';
+              var optionContent = '';
+              optionContent += '<span class="plugin-action edit-action" data-row-key="' + id + '">编辑</span>';
+              optionContent += '<span class="plugin-action delete-action" data-row-key="' + id +
+                '">删除</span>';
+              optionContent += '<span class="plugin-action abled-action" data-row-key="' + id + '">' +
+                abledText + '</span>';
+              optionContent += '<span class="plugin-action bank-action" data-row-key="' + id + '">银行</span>';
+              if (row.tree_type === 1) {
+                optionContent += '<span class="plugin-action add-org-action" data-row-key="' + id +
+                  '">新增组织</span>';
+              }
+              optionContent += '<span class="plugin-action add-dept-action" data-row-key="' + id +
+                '">新增部门</span>';
+
+              return optionContent;
+            }
+          }
+        ],
+        data: []
+      };
+      var treeGrid = new TreeGrid(config);
+      treeGrid.show();
+
+      $('.btn-refresh').on('click', function () {
+        treeGrid.refresh();
+      });
+
+      $('#treeGridDemo').on('click', '.add-action, .edit-action, .del-action', function () {
+        console.log($(this).data('row-key'));
+      });
+    });
+
+  </script>
+</body>
+
+</html>

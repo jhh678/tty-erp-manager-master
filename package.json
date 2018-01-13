@@ -1,0 +1,22 @@
+{
+  "name": "tty-erp-manager-master",
+  "version": "1.0.0",
+  "description": "this is a erp net static pages",
+  "main": "gulpfile.js",
+  "scripts": {
+    "dev": "gulp dev",
+    "build": "gulp build"
+  },
+  "author": "jhh",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-copy2": "^0.2.0",
+    "gulp-file-include": "^1.2.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sequence": "^0.4.6",
+    "markdown": "^0.5.0"
+  }
+}

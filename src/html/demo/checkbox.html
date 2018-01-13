@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+@@include('../tpl/header.htm', {"title": "多选框", "pageCssPath": [], "baseHref": "../../"})
+
+<body>
+  <div class="iframe-content-container">
+    <!-- 定义页面内容区域 start  -->
+    <h3>多选框说明</h3>
+    <h4>基础用法</h4>
+    <div class="text-muted">单独使用可以表示两种状态之间的切换</div>
+    <div class="row">
+      <div class="col-sm-24">
+        <div class="b-col">
+          <div class="b-opt">
+            <input class="b-checkbox" type="checkbox" id="c1">
+            <label for="c1">备选项1</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h4>禁用状态</h4>
+    <div class="text-muted">多选框不可用状态。</div>
+    <div class="row">
+      <div class="col-sm-24">
+        <div class="b-col">
+          <div class="b-opt">
+            <input class="b-checkbox" type="checkbox" id="c2" value="option2" disabled>
+            <label for="c2">备选项1</label>
+          </div>
+          <div class="b-opt">
+            <input class="b-checkbox" type="checkbox" id="c3" checked disabled>
+            <label for="c3">备选项2</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h4>多选框组</h4>
+    <div class="text-muted">适用于多个勾选框绑定到同一个数组的情景，通过是否勾选来表示这一组选项中选中的项。</div>
+    <div class="row">
+      <div class="col-sm-24">
+        <div class="b-col">
+          <div class="b-opt">
+            <input class="b-checkbox" type="checkbox" id="c4" checked value="option3" name="option1-group">
+            <label for="c4">复选框A</label>
+          </div>
+          <div class="b-opt">
+            <input class="b-checkbox" type="checkbox" id="c5" value="option4" name="option1-group">
+            <label for="c5">复选框B</label>
+          </div>
+          <div class="b-opt">
+            <input class="b-checkbox" type="checkbox" id="c6" value="option5" name="option1-group">
+            <label for="c6">复选框C</label>
+          </div>
+          <div class="b-opt">
+            <input class="b-checkbox" type="checkbox" id="c7" value="option2" disabled name="option1-group">
+            <label for="c7">禁用</label>
+          </div>
+          <div class="b-opt">
+            <input class="b-checkbox" type="checkbox" id="c8" checked disabled name="option1-group">
+            <label for="c8">禁用且选中</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h4>indeterminate 状态</h4>
+    <div class="text-muted">indeterminate 属性用以表示 checkbox 的不确定状态，一般用于实现全选的效果</div>
+    <div class="row">
+      <div class="col-sm-24">
+        <div class="b-col">
+          <div class="b-opt" id="checkAll">
+            <input class="b-checkbox" type="checkbox" id="c9">
+            <label for="c9">全选</label>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-24">
+        <div class="b-col">
+          <div class="b-opt">
+            <input class="b-checkbox" type="checkbox" id="c10" name="citys">
+            <label for="c10">上海</label>
+          </div>
+          <div class="b-opt">
+            <input class="b-checkbox" type="checkbox" id="c11" name="citys">
+            <label for="c11">北京</label>
+          </div>
+          <div class="b-opt">
+            <input class="b-checkbox" type="checkbox" id="c12" name="citys">
+            <label for="c12">广州</label>
+          </div>
+          <div class="b-opt">
+            <input class="b-checkbox" type="checkbox" id="c13" name="citys">
+            <label for="c13">深圳</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h4>可选项目数量的限制</h4>
+    <div class="text-muted">使用 min 和 max 属性能够限制可以被勾选的项目的数量。</div>
+    <div class="col-sm-24">
+      <div class="b-col" min="1" max="2">
+        <div class="b-opt">
+          <input class="b-checkbox" type="checkbox" id="c14" name="min-max">
+          <label for="c14">上海</label>
+        </div>
+        <div class="b-opt">
+          <input class="b-checkbox" type="checkbox" id="c15" name="min-max">
+          <label for="c15">北京</label>
+        </div>
+        <div class="b-opt">
+          <input class="b-checkbox" type="checkbox" id="c16" name="min-max" checked>
+          <label for="c16">广州</label>
+        </div>
+        <div class="b-opt">
+          <input class="b-checkbox" type="checkbox" id="c17" name="min-max" checked>
+          <label for="c17">深圳</label>
+        </div>
+      </div>
+    </div>
+    <h4>按钮样式（用于角色选择）</h4>
+    <div class="text-muted">使用 min 和 max 属性能够限制可以被勾选的项目的数量。</div>
+    <div class="text-muted">至少选择一种角色</div>
+    <div class="col-sm-24">
+      <div class="b-col" min="1">
+        <div class="b-opt b-opt-btn">
+          <input class="b-checkbox-btn" type="checkbox" id="c18" name="roles">
+          <label for="c18">系统管理员</label>
+        </div>
+        <div class="b-opt b-opt-btn">
+          <input class="b-checkbox-btn" type="checkbox" id="c19" name="roles">
+          <label for="c19">采购主管</label>
+        </div>
+        <div class="b-opt b-opt-btn">
+          <input class="b-checkbox-btn" type="checkbox" id="c20" name="roles">
+          <label for="c20">采购专员</label>
+        </div>
+        <div class="b-opt b-opt-btn">
+          <input class="b-checkbox-btn" type="checkbox" id="c21" name="roles">
+          <label for="c21">店长</label>
+        </div>
+      </div>
+    </div>
+    <!-- 定义页面内容区域 end  -->
+  </div>
+
+  @@include('../tpl/footer.htm', {"pageJsPath": []})
+  <script>
+    (function () {
+      // 全选方法
+      $('#checkAll').on('click', '#c9', function () {
+        for (var i = 0, len = $('.b-opt input[name=citys]').length; i < len; i++) {
+          $('.b-opt input[name=citys]')[i].checked = $(this).is(":checked()");
+        }
+      });
+      $('.b-opt input[name=citys]').on('click', function () {
+        var checkedArr = [];
+        for (var i = 0, len = $('.b-opt input[name=citys]').length; i < len; i++) {
+          if ($('.b-opt input[name=citys]')[i].checked) {
+            checkedArr.push($('.b-opt input[name=citys]')[i]);
+          }
+        }
+        $('#c9')[0].checked = $('.b-opt input[name=citys]').length === checkedArr.length;
+      })
+    })()
+
+  </script>
+</body>
+
+</html>

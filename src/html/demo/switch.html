@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+@@include('../tpl/header.htm', {"title": "开关", "pageCssPath": [], "baseHref": "../../"})
+
+<body>
+  <div class="iframe-content-container">
+    <!-- 定义页面内容区域 start  -->
+    <div class="panel-heading">Switch 开关
+      <div class="text-muted">表示两种相互对立的状态间的切换，多用于触发「开/关」。</div>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-sm-24">
+          <input type="checkbox" id="b-swtich" class="b-swtich">
+          <label for="b-swtich" class="green"></label>
+        </div>
+      </div>
+      <!-- 定义页面内容区域 end  -->
+    </div>
+
+    @@include('../tpl/footer.htm', {"pageJsPath": []})
+</body>
+
+</html>
