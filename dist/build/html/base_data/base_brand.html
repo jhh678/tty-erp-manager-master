@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
   <meta name="renderer" content="webkit" />
-  <title>单位列表</title>
-  <base href="../../sys_unit" />
+  <title>商品品牌</title>
+  <base href="../../" />
   <link rel="shortcut icon" href="favicon.ico" />
   <link rel="stylesheet" href="css/common/bootstrap.css" />
-  <link rel="stylesheet" href="css/common/common.css" />  <link rel="stylesheet" href="css/sys_unitIndex.css" /> 
+  <link rel="stylesheet" href="css/common/common.css" />  <link rel="stylesheet" href="css/base_data/base_brand.css" /> 
 </head>
 
 <style>
@@ -55,10 +55,16 @@
           </div>
           <div class="modal-body">
             <form class="b-form form-horizontal" id="form-validator" action="/api/submitActivies">
+              <div class="form-group has-feedback">
+                <label for="depot_number" class="control-label" style="width: 80px;">编号</label>
+                <div class="form-item" style="margin-left: 80px;">
+                  <input autocomplete="off" type="text" disabled name="depotNumber" class="form-control">
+                </div>
+              </div>
               <div class="form-group required has-feedback">
                 <label for="brand_name" class="control-label" style="width: 80px;">名称</label>
                 <div class="form-item" style="margin-left: 80px;">
-                  <input autocomplete="off" type="text" placeholder="手动录入" name="brandName" class="form-control" maxlength="5">
+                  <input autocomplete="off" type="text" placeholder="手动录入" name="brandName" class="form-control">
                 </div>
               </div>
               <div class="form-btns" style="width: 538px;">
@@ -79,7 +85,7 @@
 <script src="js/common/utils.js"></script>
 <script src="js/common/common.js"></script>
 <script src="js/plugins/jquery.bootstrap.validator.js"></script>
- <script src="js/sys_unit/sys_unitIndex.js">
+ <script src="js/base_data/base_brand.js">
   </script>
   
 

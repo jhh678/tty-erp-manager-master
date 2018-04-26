@@ -3071,7 +3071,7 @@ $.extend({
             },
             closest: function (t) {
               function e() {
-                return n && i.length !== 0 && n.nodeType === 1 ? void([].indexOf.call(i, n) === -1 && (n = n.parentNode, e())) : void(n = null);
+                return n && i.length !== 0 && n.nodeType === 1 ? void ([].indexOf.call(i, n) === -1 && (n = n.parentNode, e())) : void (n = null);
               }
               var n = this.DOMList[0].parentNode;
               if (typeof t === 'undefined') return new o(n);
@@ -3798,11 +3798,11 @@ $.extend({
         var _table = (0, _jTool2.default)(table);
         // 当前表是否禁用缓存  被禁用原因是用户缺失了必要的参数
         var noCache = _table.attr('no-cache');
-        if (!_table || _table.length == 0) {
+        if (!_table || _table.length === 0) {
           _Base2.default.outLog('saveUserMemory:无效的table', 'error');
           return false;
         }
-        if (noCache && noCache == 'true') {
+        if (noCache && noCache === 'true') {
           _Base2.default.outLog('缓存功能已被禁用：当前表缺失必要参数', 'info');
           return false;
         }
@@ -3811,7 +3811,7 @@ $.extend({
           return false;
         }
         var thList = (0, _jTool2.default)('thead[grid-manager-thead] th', _table);
-        if (!thList || thList.length == 0) {
+        if (!thList || thList.length === 0) {
           _Base2.default.outLog('saveUserMemory:无效的thList,请检查是否正确配置table,thead,th', 'error');
           return false;
         }
@@ -4531,8 +4531,8 @@ $.extend({
         $(sizeArea.DOMList[0]).off('change');
         $(sizeArea.DOMList[0]).on('change', function () {
           var _size = (0, _jTool2.default)(this);
-          var _tableWarp = _size.closest('.table-wrap'),
-            _table = (0, _jTool2.default)('table[grid-manager]', _tableWarp);
+          var _tableWrap = _size.closest('.table-wrap'),
+            _table = (0, _jTool2.default)('table[grid-manager].GridManager-main', _tableWrap);
           var settings = _Cache2.default.getSettings($table);
           settings.pageData = {
             cPage: 1,
@@ -5809,7 +5809,7 @@ $.extend({
           var _checkedList = (0, _jTool2.default)('.config-area input[type="checkbox"]:checked', _tableWarp);
 
           // 限制最少显示一列
-          if (_checkedList.length == 1) {
+          if (_checkedList.length === 1) {
             _checkedList.parent().addClass('no-click');
           }
 

@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
   <meta name="renderer" content="webkit" />
-  <title>商品品牌</title>
-  <base href="../../base_brand" />
+  <title>商品税率</title>
+  <base href="../../" />
   <link rel="shortcut icon" href="favicon.ico" />
   <link rel="stylesheet" href="css/common/bootstrap.css" />
-  <link rel="stylesheet" href="css/common/common.css" />  <link rel="stylesheet" href="css/base_brandIndex.css" /> 
+  <link rel="stylesheet" href="css/common/common.css" />  <link rel="stylesheet" href="css/base_data/base_rate.css" /> 
 </head>
 
 <style>
@@ -64,7 +64,13 @@
               <div class="form-group required has-feedback">
                 <label for="brand_name" class="control-label" style="width: 80px;">名称</label>
                 <div class="form-item" style="margin-left: 80px;">
-                  <input autocomplete="off" type="text" placeholder="手动录入" name="brandName" class="form-control">
+                  <input autocomplete="off" type="text" placeholder="" name="brandName" class="form-control">
+                </div>
+              </div>
+              <div class="form-group required has-feedback">
+                <label for="tax_rate" class="control-label" style="width: 80px;">税率</label>
+                <div class="form-item" style="margin-left: 80px;">
+                  <input autocomplete="off" type="text" placeholder="" name="taxRate" class="form-control">
                 </div>
               </div>
               <div class="form-btns" style="width: 538px;">
@@ -85,7 +91,7 @@
 <script src="js/common/utils.js"></script>
 <script src="js/common/common.js"></script>
 <script src="js/plugins/jquery.bootstrap.validator.js"></script>
- <script src="js/base_brand/base_brandIndex.js">
+ <script src="js/base_data/base_rate.js">
   </script>
   
 
